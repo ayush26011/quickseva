@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Search Engine Metadata -->
+  <title>QuickSeva - Hire Local Plumbers, Electricians & Construction Experts</title>
+  <meta name="description" content="QuickSeva is a premium hyperlocal platform that connects you with vetted, background-verified plumbing, electrical, construction, painting, and hardware specialists instantly.">
+  <meta name="keywords" content="quickseva, home services, plumber near me, local electrician, carpentry, painters, home repair booking, hire construction workers">
+  <meta name="author" content="QuickSeva Inc.">
+  <link rel="canonical" href="https://quickseva.com/">
+  
+  <!-- Robots Guidelines -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quickseva.com/">
+  <meta property="og:title" content="QuickSeva - Instant Local Service Providers Booking">
+  <meta property="og:description" content="Vetted plumbers, carpenters, painters, and electrical experts instantly booked to resolve home issues.">
+  <meta property="og:image" content="https://quickseva.com/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://quickseva.com/">
+  <meta property="twitter:title" content="QuickSeva - Hyperlocal Artisan Network">
+  <meta property="twitter:description" content="Hire certified local masons, plumbers, and technicians within minutes with transparent pricing.">
+  <meta property="twitter:image" content="https://quickseva.com/assets/og-image.jpg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="app.css">
+  
+  <!-- Scripts -->
+  <script src="app.js" defer></script>
+  <script src="ai-bot.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Premium Header Shell -->
+    <header class="navbar">
+      <div class="container">
+        <a href="#home" class="logo-container" aria-label="QuickSeva Homepage">
+          <div class="logo-icon">⚡</div>
+          <span class="logo-text">QuickSeva</span>
+        </a>
+        
+        <nav>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#services" class="nav-link">Book Services</a></li>
+            <li><a href="#about" class="nav-link">About Us</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-controls">
+          <!-- Light/Dark Mode Switcher -->
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme Color Scheme">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+            </svg>
+          </button>
+          
+          <!-- Portal Auth Gateway -->
+          <div id="navbar-portal" style="display:flex;align-items:center;gap:12px;">
+            <!-- Rendered Dynamically in JS -->
+          </div>
+
+          <button class="menu-mobile-btn" id="mobile-menu-btn" aria-label="Expand mobile navigation menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container Shell for dynamic SPA router -->
+    <main>
+      <section id="sec-home" class="page-section active anim-fade-in" aria-label="Homepage Shell"></section>
+      
+      <section id="sec-services" class="page-section anim-fade-in" aria-label="Services Catalog Shell"></section>
+      
+      <section id="sec-dashboard" class="page-section anim-fade-in" aria-label="Dashboard Management Portal"></section>
+      
+      <section id="sec-about" class="page-section anim-fade-in" aria-label="About Company Information"></section>
+      
+      <section id="sec-contact" class="page-section anim-fade-in" aria-label="Contact Customer Support"></section>
+    </main>
+
+    <!-- Dynamic Toast Notification Alerts wrapper -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Booking Confirmation Dialog Modal Overlay -->
+    <div class="modal-overlay" id="booking-modal-overlay">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeBookingModal()">&times;</span>
+        <div class="modal-header">
+          <h3 class="modal-title">Book Service Provider</h3>
+          <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px;">Secure scheduling appointment portal</p>
+        </div>
+
+        <div style="background-color:var(--bg-tertiary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:16px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <h4 id="booking-prov-name" style="font-family:var(--font-heading);font-weight:700;">Provider</h4>
+            <p id="booking-prov-role" style="font-size:0.8rem;color:var(--color-accent);font-weight:600;text-transform:uppercase;">Specialty</p>
+          </div>
+          <div id="booking-prov-rate" style="font-weight:bold;font-size:1.1rem;color:var(--text-primary);">Price</div>
+        </div>
+
+        <form onsubmit="handleBookingSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="booking-date">Appointment Date</label>
+              <input type="date" class="form-input" id="booking-date" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="booking-time">Preferred Time</label>
+              <input type="time" class="form-input" id="booking-time" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="booking-desc">Describe the Job / Repair Task</label>
+            <textarea class="form-input" id="booking-desc" rows="4" required placeholder="Please describe the issue (e.g. kitchen sink tap leaking, smart switch replacement...)"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;">Confirm Appointment Booking</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin: Add Provider Modal -->
+    <div class="modal-overlay" id="admin-prov-modal-overlay">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeAddProviderModal()">&times;</span>
+        <div class="modal-header">
+          <h3 class="modal-title">Register New Provider</h3>
+          <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px;">Add service provider to the platform registry</p>
+        </div>
+
+        <form onsubmit="handleAddProviderSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="admin-prov-name">Full Name</label>
+            <input type="text" class="form-input" id="admin-prov-name" required placeholder="e.g. Hariom Sharma">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="admin-prov-role">Specialty Category</label>
+              <select class="form-input" id="admin-prov-role" required>
+                <option value="Plumber">Plumbing</option>
+                <option value="Electrician">Electrical</option>
+                <option value="Construction">Construction</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Painter">Painting</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="admin-prov-price">Price Per Hour ($)</label>
+              <input type="number" class="form-input" id="admin-prov-price" min="5" max="150" required placeholder="e.g. 25">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="admin-prov-phone">Phone Number</label>
+            <input type="tel" class="form-input" id="admin-prov-phone" required placeholder="e.g. +91 99988-77665">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="admin-prov-bio">Short Biography / Skillset Overview</label>
+            <textarea class="form-input" id="admin-prov-bio" rows="3" required placeholder="Provide a brief description of the provider's skills and experience..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;">Create Registry Entry</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Floating Multilingual AI Assistant Chatbot (QuickSeva Mitra) -->
+    <div class="chatbot-bubble" id="chatbot-bubble" role="button" aria-label="Open AI Help Chatbot Assistant">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+      </svg>
+    </div>
+
+    <div class="chatbot-window" id="chatbot-window" aria-label="AI Help Chatbot window">
+      <div class="chatbot-header">
+        <div class="chatbot-meta">
+          <div class="chatbot-avatar">⚡</div>
+          <div>
+            <div class="chatbot-name">QuickSeva Mitra</div>
+            <div class="chatbot-status">Online</div>
+          </div>
+        </div>
+        <div class="chatbot-controls">
+          <button class="lang-toggle active" id="lang-en">EN</button>
+          <button class="lang-toggle" id="lang-hi">HI</button>
+          <span id="chatbot-close" style="cursor:pointer;font-size:1.4rem;line-height:1;margin-left:8px;color:var(--text-muted);">&times;</span>
+        </div>
+      </div>
+      
+      <!-- Message history stream -->
+      <div class="chatbot-body" id="chatbot-body"></div>
+
+      <!-- User prompt inputs -->
+      <form class="chatbot-footer" id="chatbot-form">
+        <input type="text" class="chatbot-input" id="chatbot-input" required autocomplete="off" placeholder="Ask Mitra how to fix a leak...">
+        <button type="submit" class="btn btn-primary" style="padding:10px 16px;box-shadow:none;">Send</button>
+      </form>
+    </div>
+
+    <!-- Footer Shell -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo-container">
+              <div class="logo-icon">⚡</div>
+              <span class="logo-text">QuickSeva</span>
+            </div>
+            <p>Your premium neighborhood partner for immediate, verified service specialists. Book. Done.</p>
+          </div>
+          <div>
+            <h4 class="footer-title">Platform</h4>
+            <ul class="footer-links">
+              <li><a href="#services">Book Services</a></li>
+              <li><a href="#dashboard">Dashboard Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#contact">Support Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-title">Verification</h4>
+            <p style="font-size:0.85rem;line-height:1.5;">Every listed provider undergoes strict background audits, local trade registry reviews, and continuous performance checks.</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 QuickSeva Inc. All rights reserved.</p>
+          <p style="font-size:0.8rem;color:var(--text-muted);">Developed to exceed the highest visual & performance web standards.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
